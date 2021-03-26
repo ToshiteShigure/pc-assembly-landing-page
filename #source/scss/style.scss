@@ -1,0 +1,314 @@
+//null
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Roboto', sans-serif;
+
+    box-sizing: border-box;
+
+    outline: 0;
+    border: 0;
+
+    font-size: 10px;
+    line-height: 150%;
+
+    text-decoration: none;
+    list-style: none;
+}
+
+//mixin for text properties
+@mixin text-prop ($clr: $white, $sz: 16px, $wgt: 400) {
+    color: $clr;
+    font-size: $sz;
+    font-weight: $wgt;
+}
+
+//variables
+//colors
+$white: #fff;
+$black: #000;
+$dark-gray: #121212;
+$yellow: #F5D547;
+$blue: #8AB9B5;
+$blue-50p: #8AB9B580;
+$white-40p: rgba(255, 255, 255, 0.4);
+$white-50p: rgba(255, 255, 255, 0.5);
+
+//gradients
+$pink-grad: linear-gradient(94.78deg, #DF5950 11.19%, #451046 93.72%);
+$violet-grad: linear-gradient(94.26deg, #C89AFC 9.51%, #7C6AFA 90.23%);
+
+//button-component
+
+
+.text {
+    @include text-prop($white, 16px, 400);
+    line-height: 160%;
+}
+
+.link {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    width: auto;
+    padding: 1rem 3rem;
+
+    white-space: nowrap;
+
+    @include text-prop($white, 16px, 700);
+    line-height: 160%;
+}
+
+.button {
+    display: flex;
+
+    width: auto;
+    height: 4.4rem;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 5rem;
+
+    background-image: $pink-grad;
+}
+
+*:focus {
+    box-shadow: 0 0 0 0.5rem $yellow;
+}
+
+.button:hover {
+    box-shadow: 0 0 0.7rem 0.5rem $blue-50p;
+}
+
+.button:active {
+    box-shadow: 0 0 0.7rem 0.5rem $blue;
+}
+
+.title {
+    @include text-prop($white, 48px, 700);
+    line-height: 140%;
+}
+
+%button-round {
+    display: flex;
+
+    width: 5rem;
+    height: 5rem;
+
+    justify-content: center;
+    align-items: center;
+
+    background-image: $violet-grad;
+}
+
+//header style
+.header {
+    width: 100%;
+    height: 12rem;
+
+    padding: 0 percentage(80px / 1920px);
+
+    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    &__logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 8rem;
+        height: 8rem;
+    }
+
+    &__img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    &__navbar {
+        width: auto;
+        display: flex;
+
+        justify-content: flex-end;
+        gap: 17vw;
+    }
+
+    &__list {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+    &__listitem {
+        width: auto;
+    }
+
+    &__link {
+        padding: 0.5vw 1.5vw;
+
+        font-weight: 400;
+    }
+
+    &__button {
+        background-image: $violet-grad;
+    }
+}
+
+main.page>* {
+    padding-left: percentage(312px / 1920px);
+    padding-right: percentage(312px / 1920px);
+}
+
+.banner {
+    background-image: url('../../img/banner-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 100%;
+    height: auto;
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+
+        gap: 5rem;
+
+        padding-top: 27rem;
+        padding-bottom: 22rem;
+    }
+
+    &__title {
+        font-size: 64px;
+        max-width: 92rem;
+    }
+
+    &__timer {
+        display: flex;
+        flex-direction: row;
+
+        gap: 3rem;
+    }
+
+    &__card {
+        background-color: $dark-gray;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 2rem 3rem 2rem 3rem;
+    }
+
+    &__card-title {
+        font-size: 36px;
+    }
+
+    &__card-text {
+        color: $white-40p;
+    }
+}
+
+.banner-footer {
+    background-color: $dark-gray;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-between;
+
+    gap: percentage(81px / 1920px);
+
+    width: 100%;
+    height: auto;
+
+    padding-top: 3.6rem;
+    padding-bottom: 3.6rem;
+
+    &__button {}
+
+    &__link {}
+
+    &__numbers {
+        display: flex;
+        flex-direction: column;
+
+        gap: 1rem;
+    }
+
+    &__count {
+        display: flex;
+        justify-content: space-between;
+
+        width: 27rem;
+    }
+
+    &__students {
+        color: $white-40p;
+    }
+
+    &__number {
+        font-weight: bold;
+    }
+
+    &__students-earned {
+        display: flex;
+        flex-direction: column;
+
+        gap: 1rem;
+    }
+
+    &__progress-bar {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0.5rem;
+
+        width: 37vw;
+        min-width: 27rem;
+    }
+
+    &__scale {
+        background-color: $white;
+
+        width: 100%;
+        height: 0.6rem;
+    }
+
+    &__fill {
+        background-image: $pink-grad;
+
+        width: 75%;
+        height: 100%;
+    }
+
+    &__interval {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__start {
+        color: $white-40p;
+    }
+
+    &__end {
+        color: $white-40p;
+    }
+}
